@@ -128,6 +128,7 @@
     <ClCompile Include="src\breakout.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\sprite_renderer.cpp" />
     <ClCompile Include="src\stb_image_define.cpp" />
     <ClCompile Include="src\Utilities\resource_manager.cpp" />
     <ClCompile Include="src\Utilities\shader.cpp" />
@@ -135,10 +136,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\sprite_renderer.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Utilities\resource_manager.h" />
     <ClInclude Include="src\Utilities\shader.h" />
     <ClInclude Include="src\Utilities\texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\spriteShader.frag" />
+    <None Include="Assets\Shaders\spriteShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\awesomeface.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
