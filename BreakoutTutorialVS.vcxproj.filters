@@ -27,7 +27,13 @@
     <ClCompile Include="src\Utilities\resource_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utilities\stb_image_define.cpp">
+    <ClCompile Include="src\breakout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stb_image_define.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
