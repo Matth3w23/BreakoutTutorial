@@ -126,11 +126,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\Utilities\resource_manager.cpp" />
     <ClCompile Include="src\Utilities\shader.cpp" />
+    <ClCompile Include="src\Utilities\stb_image_define.cpp" />
     <ClCompile Include="src\Utilities\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\stb_image.h" />
+    <ClInclude Include="src\Utilities\resource_manager.h" />
     <ClInclude Include="src\Utilities\shader.h" />
     <ClInclude Include="src\Utilities\texture.h" />
   </ItemGroup>
