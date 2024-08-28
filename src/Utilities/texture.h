@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+//texture utility class from https://learnopengl.com/
+//For storing and configuring a texture.
 class Texture2D {
 public:
     // holds the ID of the texture object, used for all texture operations to reference to this particular texture

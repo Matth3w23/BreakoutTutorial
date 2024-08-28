@@ -9,6 +9,7 @@
 
 
 //shader utility class from https://learnopengl.com/
+//contains code for compiling and linking shaders, as well as setting values
 class Shader {
 public:
 	unsigned int ID;
