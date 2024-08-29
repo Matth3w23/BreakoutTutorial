@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="src\breakout.cpp" />
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\game_object.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\sprite_renderer.cpp" />
     <ClCompile Include="src\stb_image_define.cpp" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\game_object.h" />
     <ClInclude Include="src\sprite_renderer.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Utilities\resource_manager.h" />
