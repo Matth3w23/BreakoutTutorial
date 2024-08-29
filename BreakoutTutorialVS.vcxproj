@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="src\breakout.cpp" />
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\game_level.cpp" />
     <ClCompile Include="src\game_object.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\sprite_renderer.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\game_level.h" />
     <ClInclude Include="src\game_object.h" />
     <ClInclude Include="src\sprite_renderer.h" />
     <ClInclude Include="src\stb_image.h" />
@@ -150,6 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\awesomeface.png" />
+    <Image Include="Assets\Textures\block.png" />
+    <Image Include="Assets\Textures\block_solid.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
