@@ -147,11 +147,16 @@
     <ClInclude Include="src\Utilities\texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Levels\four.lvl" />
+    <None Include="Assets\Levels\one.lvl" />
+    <None Include="Assets\Levels\three.lvl" />
+    <None Include="Assets\Levels\two.lvl" />
     <None Include="Assets\Shaders\spriteShader.frag" />
     <None Include="Assets\Shaders\spriteShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\awesomeface.png" />
+    <Image Include="Assets\Textures\background.jpg" />
     <Image Include="Assets\Textures\block.png" />
     <Image Include="Assets\Textures\block_solid.png" />
   </ItemGroup>

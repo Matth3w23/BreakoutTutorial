@@ -3,6 +3,9 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <vector>
+
+#include "game_level.h"
 
 //represents the current state of the game
 enum GameState {
@@ -16,6 +19,9 @@ public:
 	GameState State;
 	bool Keys[1024];
 	unsigned int Width, Height;
+
+	std::vector<GameLevel> Levels;
+	unsigned int activeLevel;
 
 	Game(unsigned int width, unsigned int height);
 	~Game();
