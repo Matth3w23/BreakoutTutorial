@@ -2,6 +2,8 @@
 #include "Utilities/resource_manager.h"
 #include "sprite_renderer.h"
 
+#include <iostream>
+
 
 // Game-related State data
 SpriteRenderer* Renderer;
@@ -30,6 +32,23 @@ void Game::Init() {
     Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
     // load textures
     ResourceManager::LoadTexture("Assets/Textures/awesomeface.png", true, "face");
+    ResourceManager::LoadTexture("Assets/Textures/background.jpg", false, "background");
+    ResourceManager::LoadTexture("Assets/Textures/block.png", false, "block");
+    ResourceManager::LoadTexture("Assets/Textures/block_solid.png", false, "block_solid");
+    // load levels
+    GameLevel one;
+    one.Load("Assets/Levels/one.lvl", this->Width, this->Height / 2);
+    GameLevel two;
+    two.Load("Assets/Levels/two.lvl", this->Width, this->Height / 2);
+    GameLevel three;
+    three.Load("Assets/Levels/three.lvl", this->Width, this->Height / 2);
+    GameLevel four;
+    four.Load("Assets/Levels/four.lvl", this->Width, this->Height / 2);
+    this->Levels.push_back(one);
+    this->Levels.push_back(two);
+    this->Levels.push_back(three);
+    this->Levels.push_back(four);
+    this->activeLevel = 0;
 }
 
 void Game::ProcessInput(float dt) {
@@ -40,8 +59,13 @@ void Game::Update(float dt) {
 }
 
 void Game::Render() {
-    Renderer->DrawSprite(
-        ResourceManager::GetTexture("face"), glm::vec2(200.0f, 200.0f),
-        glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(1.0f, 1.0f, 1.0f)
-    );
+    if (this->State == GAME_ACTIVE) {
+        //draw background
+        Renderer->DrawSprite(
+            ResourceManager::GetTexture("background"), glm::vec2(0.0f, 0.0f),
+            glm::vec2(this->Width, this->Height), 0, glm::vec3(1.0f, 1.0f, 1.0f)
+        );
+        // draw level
+        this->Levels[this->activeLevel].Draw(*Renderer);
+    }
 }

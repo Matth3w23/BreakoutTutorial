@@ -75,6 +75,10 @@
   <ItemGroup>
     <None Include="Assets\Shaders\spriteShader.vert" />
     <None Include="Assets\Shaders\spriteShader.frag" />
+    <None Include="Assets\Levels\two.lvl" />
+    <None Include="Assets\Levels\four.lvl" />
+    <None Include="Assets\Levels\one.lvl" />
+    <None Include="Assets\Levels\three.lvl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\awesomeface.png">
@@ -84,6 +88,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Textures\block_solid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\background.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
