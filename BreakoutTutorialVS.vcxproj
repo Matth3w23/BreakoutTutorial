@@ -159,6 +159,7 @@
     <Image Include="Assets\Textures\background.jpg" />
     <Image Include="Assets\Textures\block.png" />
     <Image Include="Assets\Textures\block_solid.png" />
+    <Image Include="Assets\Textures\paddle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
