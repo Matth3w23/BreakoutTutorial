@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ball_object.cpp" />
     <ClCompile Include="src\breakout.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\game_level.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="src\Utilities\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ball_object.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\game_level.h" />
     <ClInclude Include="src\game_object.h" />
