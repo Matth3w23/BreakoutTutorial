@@ -3,18 +3,13 @@
 #include "sprite_renderer.h"
 #include "ball_object.h"
 
+#include <glm/glm.hpp>
 #include <iostream>
 
 
 // Game-related State data
 SpriteRenderer* Renderer;
 GameObject* Player;
-
-const glm::vec2 PLAYER_SIZE(100.0f, 20.0f);
-const float PLAYER_VELOCITY(500.0f);
-
-const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
-const float BALL_RADIUS = 12.5f;
 
 BallObject* Ball;
 
@@ -105,6 +100,7 @@ void Game::ProcessInput(float dt) {
 
 void Game::Update(float dt) {
     Ball->Move(dt, this->Width);
+    this->DoCollisions();
 }
 
 void Game::Render() {
@@ -123,4 +119,53 @@ void Game::Render() {
         //draw ball
         Ball->Draw(*Renderer);
     }
+}
+
+bool CheckCollision(GameObject& one, GameObject& two);
+bool CheckCollision(BallObject& ball, GameObject& box);
+
+void Game::DoCollisions() {
+    for (GameObject& box : this->Levels[this->activeLevel].Bricks) {
+        if (!box.Destroyed) {
+            if (CheckCollision(*Ball, box)) {
+                if (!box.IsSolid) {
+                    box.Destroyed = true;
+                }
+            }
+        }
+    }
+}
+
+//check if axis aligned BB collisions between two GameObjects
+bool CheckCollision(GameObject& one, GameObject& two) {
+    // x axis
+    bool collisionX =
+        one.Position.x + one.Size.x >= two.Position.x &&
+        two.Position.x + two.Size.x >= one.Position.x;
+    // y axis
+    bool collisionY =
+        one.Position.y + one.Size.y >= two.Position.y &&
+        two.Position.y + two.Size.y >= one.Position.y;
+    // collision if both
+    return collisionX && collisionY;
+}
+
+//collision between a Ball (Circle) and a GameObject (AABB)
+bool CheckCollision(BallObject& ball, GameObject& box) {
+    //calculate info about objects
+    glm::vec2 ballCenter(ball.Position + ball.Radius);
+    glm::vec2 boxHalfExtents(box.Size.x / 2.0f, box.Size.y / 2.0f);
+    glm::vec2 boxCenter(
+        box.Position.x + boxHalfExtents.x,
+        box.Position.y + boxHalfExtents.y
+    );
+    // vector between object centers
+    glm::vec2 difference = ballCenter - boxCenter;
+
+    //clamping to box, and adding to box center gives closest position on the box to the ball
+    glm::vec2 clamped = glm::clamp(difference, -boxHalfExtents, boxHalfExtents);
+    glm::vec2 closest = boxCenter + clamped;
+    // retrieve vector between center circle and closest point AABB and check if length <= radius
+    difference = closest - ballCenter;
+    return glm::length(difference) < ball.Radius;
 }
