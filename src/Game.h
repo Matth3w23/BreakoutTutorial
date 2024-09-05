@@ -14,6 +14,12 @@ enum GameState {
 	GAME_WIN
 };
 
+const glm::vec2 PLAYER_SIZE(100.0f, 20.0f);
+const float PLAYER_VELOCITY(500.0f);
+
+const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
+const float BALL_RADIUS = 12.5f;
+
 class Game {
 public:
 	GameState State;
@@ -32,6 +38,8 @@ public:
 	void ProcessInput(float dt);
 	void Update(float dt);
 	void Render();
+
+	void DoCollisions();
 };
 
 #endif
