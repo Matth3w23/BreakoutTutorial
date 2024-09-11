@@ -101,6 +101,11 @@ void Game::ProcessInput(float dt) {
 void Game::Update(float dt) {
     Ball->Move(dt, this->Width);
     this->DoCollisions();
+
+    if (Ball->Position.y >= this->Height) {
+        this->ResetLevel();
+        this->ResetPlayer();
+    }
 }
 
 void Game::Render() {
@@ -234,4 +239,25 @@ Direction VectorDirection(glm::vec2 target) {
         }
     }
     return (Direction)best_match;
+}
+
+
+
+void Game::ResetLevel() {
+    if (this->activeLevel == 0) {
+        this->Levels[0].Load("Assets/Levels/one.lvl", this->Width, this->Height / 2);
+    } else if (this->activeLevel == 1) {
+            this->Levels[1].Load("Assets/Levels/one.lvl", this->Width, this->Height / 2);
+    } else if (this->activeLevel == 2) {
+        this->Levels[2].Load("Assets/Levels/one.lvl", this->Width, this->Height / 2);
+    } else if (this->activeLevel == 3) {
+        this->Levels[3].Load("Assets/Levels/one.lvl", this->Width, this->Height / 2);
+    }
+}
+
+void Game::ResetPlayer() {
+    // reset player and ball states
+    Player->Size = PLAYER_SIZE;
+    Player->Position = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f, this->Height - PLAYER_SIZE.y);
+    Ball->Reset(Player->Position + glm::vec2(PLAYER_SIZE.x / 2.0f - BALL_RADIUS, -(BALL_RADIUS * 2.0f)), INITIAL_BALL_VELOCITY);
 }
